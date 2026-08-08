@@ -24,6 +24,16 @@ class LinkedList:
             result.append(current.data)
             current = current.next 
         return result
+    def prepend(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.size +=1
+            
         
     def __len__(self):
         return self.size
@@ -36,5 +46,7 @@ print(ll.head is ll.tail)   # True
 ll.append(7)
 print(ll.head is ll.tail)   # False
 print("Length:", ll.__len__())
-for value in ll.tolist():
+
+ll.prepend(10)
+for value in ll.to_list():
     print(value)
